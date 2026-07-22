@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { site } from "@/data/site";
 import { Button } from "@/components/Button";
 import { Stars } from "@/components/Stars";
-import { Mascot } from "@/components/Mascot";
+import { Character } from "@/components/Character";
 import { SocialIcons } from "@/components/SocialIcons";
 import { EASE } from "@/lib/motion";
 
@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-gradient-to-b from-lavender-300 via-lavender-200 to-milk pt-24 pb-12"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-24 pb-12"
     >
       <Stars stars={heroStars} tone="light" />
 
@@ -100,10 +100,14 @@ export function Hero() {
 
         {/* Right: character + social icons */}
         <div className="relative z-0 flex flex-col items-center lg:items-end">
-          <Mascot
-            variant="lavender"
+          <Character
+            src="/characters/hero.webp"
+            staticSrc="/characters/hero-static.webp"
+            alt="Анимированный 3D-персонаж Rocket Agency в лавандовом худи"
+            width={420}
+            height={619}
             priority
-            className="w-[62%] max-w-[420px] sm:w-1/2 lg:w-[92%] lg:max-w-none"
+            className="w-[62%] max-w-[380px] sm:w-1/2 lg:w-[86%] lg:max-w-none"
           />
 
           <motion.div

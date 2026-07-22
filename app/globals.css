@@ -4,6 +4,15 @@
 
 :root {
   color-scheme: light;
+  /* One continuous background sheet for the whole page (task: seamless gradient). */
+  --page-gradient: linear-gradient(
+    180deg,
+    #cabeff 0%,
+    #d8d0ff 20%,
+    #ece8ff 46%,
+    #e2dbff 68%,
+    #cdc1ff 100%
+  );
 }
 
 html {
@@ -11,7 +20,10 @@ html {
 }
 
 body {
-  @apply bg-milk text-ink font-sans antialiased;
+  @apply text-ink font-sans antialiased;
+  /* Fixed gradient => no visible seams between sections while scrolling. */
+  background: var(--page-gradient) fixed;
+  background-color: #ddd6ff; /* fallback */
   overflow-x: hidden;
 }
 
@@ -23,6 +35,72 @@ section[id] {
 /* Reusable page container. */
 .container-x {
   @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+}
+
+/* Thin outline utility used on soft cards. */
+.card-outline {
+  @apply border border-lavender-200/70;
+}
+
+/* Animated character shows the looping clip; static frame only for reduced motion. */
+.character {
+  position: relative;
+}
+.character .character-static {
+  display: none;
+}
+
+/* ---- Typography system (single scale, consistent across the site) ---- */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+.eyebrow {
+  @apply text-sm font-semibold uppercase tracking-[0.28em] text-lavender-600;
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+/* ---- Custom star cursor (desktop pointers only) ---- */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-star,
+  html.cursor-star * {
+    cursor: none;
+  }
+}
+.star-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px; /* center the star on the real pointer (accurate click point) */
+  z-index: 9999;
+  pointer-events: none;
+  color: #7f57e6;
+  will-change: transform;
+  transition: transform 0.14s ease, opacity 0.2s ease;
+  filter: drop-shadow(0 2px 6px rgba(127, 87, 230, 0.45));
+}
+.star-cursor svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.star-cursor.is-hover {
+  transform: scale(1.55);
+  color: #9575f4;
+  filter: drop-shadow(0 0 10px rgba(149, 117, 244, 0.7));
+}
+.star-cursor.is-down {
+  transform: scale(0.85);
 }
 
 /* Respect users who prefer reduced motion. */
@@ -37,9 +115,14 @@ section[id] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-}
-
-/* Thin outline utility used on soft cards. */
-.card-outline {
-  @apply border border-lavender-200/70;
+  .star-cursor {
+    transition: none;
+  }
+  /* Freeze the character: hide the animated WebP, show the static frame. */
+  .character .character-anim {
+    display: none;
+  }
+  .character .character-static {
+    display: block;
+  }
 }

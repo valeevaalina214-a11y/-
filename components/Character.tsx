@@ -1,69 +1,57 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
- * Rocket Agency 3D mascot.
- *
- * Drop the real renders into /public/characters/ keeping these file names:
- *   hero.webp      — большой персонаж на первом экране
- *   group.webp     — небольшой персонаж рядом с Rocket Group
- *   contacts.webp  — персонаж рядом с контактами
- * Placeholders (*.svg) are used until the real images are added.
+ * Animated 3D character (transparent looping WebP built from the uploaded clip).
+ * A static frame is shown instead when the user prefers reduced motion.
+ * Plain <img> is used so the animated WebP plays untouched (no optimizer re-encode);
+ * width/height keep the aspect ratio so the character is never stretched.
  */
-
-type CharacterProps = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  priority?: boolean;
-  className?: string;
-  /** Small vertical float loop for a lively feel. */
-  float?: boolean;
-};
-
 export function Character({
   src,
+  staticSrc,
   alt,
   width,
   height,
   priority = false,
   className = "",
-  float = true,
-}: CharacterProps) {
-  const reduce = useReducedMotion();
-
+}: {
+  src: string;
+  staticSrc: string;
+  alt: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  className?: string;
+}) {
   return (
     <motion.div
-      className={`select-none ${className}`}
-      initial={{ opacity: 0, y: 60, scale: 0.94 }}
+      className={`character select-none ${className}`}
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
-      <motion.div
-        animate={
-          float && !reduce ? { y: [0, -14, 0] } : { y: 0 }
-        }
-        transition={
-          float && !reduce
-            ? { duration: 6, repeat: Infinity, ease: "easeInOut" }
-            : undefined
-        }
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          priority={priority}
-          // SVG placeholders bypass the optimizer; real raster renders get optimized.
-          unoptimized={src.endsWith(".svg")}
-          className="h-auto w-full drop-shadow-[0_30px_45px_rgba(79,60,140,0.35)]"
-        />
-      </motion.div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className="character-anim h-auto w-full object-contain drop-shadow-[0_30px_45px_rgba(79,60,140,0.32)]"
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={staticSrc}
+        alt=""
+        aria-hidden="true"
+        width={width}
+        height={height}
+        className="character-static h-auto w-full object-contain drop-shadow-[0_30px_45px_rgba(79,60,140,0.32)]"
+      />
     </motion.div>
   );
 }

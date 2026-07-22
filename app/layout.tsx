@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Caveat } from "next/font/google";
 import "./globals.css";
+import { StarCursor } from "@/components/StarCursor";
 
 /**
  * Fonts:
@@ -47,7 +48,10 @@ export default function RootLayout({
       // Display headings reuse Plus Jakarta Sans (heaviest grotesk weight).
       style={{ ["--font-display" as string]: jakarta.style.fontFamily }}
     >
-      <body>{children}</body>
+      <body>
+        <StarCursor />
+        {children}
+      </body>
     </html>
   );
 }

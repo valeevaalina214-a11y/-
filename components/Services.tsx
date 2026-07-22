@@ -25,7 +25,7 @@ const stars = [
 
 export function Services() {
   return (
-    <section id="services" className="relative bg-milk py-20 sm:py-28">
+    <section id="services" className="relative py-20 sm:py-28">
       <Stars stars={stars} tone="muted" />
       <div className="container-x relative">
         <SectionHeading className="mb-12 text-center sm:mb-16">

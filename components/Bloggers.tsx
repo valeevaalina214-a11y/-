@@ -12,7 +12,7 @@ export function Bloggers() {
   return (
     <section
       id="bloggers"
-      className="relative bg-gradient-to-b from-lavender-200 via-lavender-100 to-lavender-200 py-20 sm:py-28"
+      className="relative py-20 sm:py-28"
     >
       <div className="container-x relative">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4 sm:mb-16">

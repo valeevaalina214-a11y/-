@@ -30,7 +30,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "bg-milk/80 shadow-[0_1px_0_rgba(0,0,0,0.05)] backdrop-blur-md"
+          ? "bg-lavender-100/70 shadow-[0_1px_0_rgba(127,87,230,0.08)] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -87,7 +87,7 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-lavender-200/60 bg-milk/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden border-t border-lavender-200/60 bg-lavender-100/95 backdrop-blur-md md:hidden"
           >
             <ul className="container-x flex flex-col gap-1 py-4">
               {navItems.map((item) => (

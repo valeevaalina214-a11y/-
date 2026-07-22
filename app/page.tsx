@@ -17,7 +17,7 @@ export default function Home() {
         <RocketGroup />
         <Contacts />
       </main>
-      <footer className="bg-lavender-300 py-6 text-center text-xs text-graphite/70">
+      <footer className="border-t border-white/40 py-8 text-center text-xs text-graphite/70">
         © {new Date().getFullYear()} Rocket Agency. Creative Blogger Agency.
       </footer>
     </>

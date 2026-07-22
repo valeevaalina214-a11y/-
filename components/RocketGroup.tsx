@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { rocketGroup } from "@/data/rocketGroup";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Mascot } from "@/components/Mascot";
+import { Character } from "@/components/Character";
 import { Stars } from "@/components/Stars";
 import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
 
@@ -17,7 +17,7 @@ const stars = [
 
 export function RocketGroup() {
   return (
-    <section id="rocket-group" className="relative overflow-hidden bg-milk py-20 sm:py-28">
+    <section id="rocket-group" className="relative overflow-hidden py-20 sm:py-28">
       <Stars stars={stars} tone="muted" />
       <div className="container-x relative">
         <SectionHeading className="mb-12 sm:mb-16" eyebrow="Экосистема">
@@ -73,9 +73,15 @@ export function RocketGroup() {
             ))}
           </motion.ul>
 
-          {/* Small mascot beside the grid */}
+          {/* Small character beside the grid */}
           <div className="mx-auto hidden w-40 lg:block xl:w-52">
-            <Mascot variant="lavender" />
+            <Character
+              src="/characters/hero.webp"
+              staticSrc="/characters/hero-static.webp"
+              alt="3D-персонаж Rocket Agency"
+              width={420}
+              height={619}
+            />
           </div>
         </div>
       </div>
