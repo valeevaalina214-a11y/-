@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="90" viewBox="0 0 360 90" fill="none">
+  <!-- Approximate recreation of the Rocket Records wordmark. Swap for the real file when available. -->
+  <g fill="#0f0e13" font-family="'Arial Black', Arial, sans-serif" font-weight="900">
+    <text x="0" y="62" font-size="58" letter-spacing="-2" style="stroke:#0f0e13;stroke-width:2;stroke-linejoin:round">ROCKET</text>
+  </g>
+  <g fill="#0f0e13" font-family="'Arial Black', Arial, sans-serif" font-weight="900" letter-spacing="1">
+    <text x="262" y="38" font-size="26">REC</text>
+    <text x="262" y="66" font-size="26">ORDS</text>
+  </g>
+</svg>
