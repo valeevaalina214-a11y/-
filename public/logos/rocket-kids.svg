@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="150" viewBox="0 0 420 150" fill="none">
+  <!-- Approximate recreation of the Rocket Kids (РОКЕТ КИДС) logo. Swap for the real file when available. -->
+  <defs>
+    <linearGradient id="pink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7cdd5"/>
+      <stop offset="0.5" stop-color="#e78b9a"/>
+      <stop offset="1" stop-color="#c85d70"/>
+    </linearGradient>
+  </defs>
+  <!-- Emblem: ellipse outline + stylised Р monogram -->
+  <g transform="rotate(-8 95 75)">
+    <ellipse cx="95" cy="80" rx="82" ry="58" fill="none" stroke="url(#pink)" stroke-width="6"/>
+    <path d="M64 128 V52 h44 a26 26 0 0 1 0 52 H86 M64 40 q30 -26 52 -6"
+          fill="none" stroke="url(#pink)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <g fill="url(#pink)" font-family="'Arial Black', Arial, sans-serif" font-weight="900" stroke="#c85d70" stroke-width="1">
+    <text x="205" y="72" font-size="52" letter-spacing="2">РОКЕТ</text>
+    <text x="205" y="128" font-size="52" letter-spacing="4">КИДС</text>
+  </g>
+</svg>

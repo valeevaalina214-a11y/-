@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800" fill="none">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ab97fb"/><stop offset="1" stop-color="#9575f4"/>
+  </linearGradient></defs>
+  <rect width="600" height="800" fill="url(#g)"/>
+  <circle cx="300" cy="300" r="120" fill="#ffffff" opacity="0.9"/>
+  <path d="M150 640c0-95 67-150 150-150s150 55 150 150v60H150v-60Z" fill="#ffffff" opacity="0.9"/>
+  <text x="300" y="742" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">@paramonova_as</text>
+  <text x="300" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.8">PHOTO PLACEHOLDER</text>
+</svg>

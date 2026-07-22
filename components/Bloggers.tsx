@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { bloggers } from "@/data/bloggers";
 import { SectionHeading } from "@/components/SectionHeading";
-import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
+import { staggerItem } from "@/lib/motion";
 
 export function Bloggers() {
   return (
@@ -22,15 +22,17 @@ export function Bloggers() {
           </span>
         </div>
 
-        <motion.ul
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-        >
+        {/* Per-card reveal: with a long roster the whole grid is too tall to gate
+            as one container, so each card animates in as it enters the viewport. */}
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {bloggers.map((blogger) => (
-            <motion.li key={blogger.name} variants={staggerItem}>
+            <motion.li
+              key={blogger.name}
+              variants={staggerItem}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <motion.article
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 300, damping: 22 }}
@@ -89,7 +91,7 @@ export function Bloggers() {
               </motion.article>
             </motion.li>
           ))}
-        </motion.ul>
+        </ul>
       </div>
     </section>
   );

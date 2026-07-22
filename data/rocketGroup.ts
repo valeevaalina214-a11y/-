@@ -20,7 +20,7 @@ export const rocketGroup: RocketProject[] = [
   {
     name: "Rocket Records",
     description: "Музыкальный лейбл и направление по работе с артистами и релизами.",
-    logo: null, // TODO: /logos/rocket-records.svg
+    logo: "/logos/rocket-records.svg", // приближённое воссоздание, заменить оригиналом
     url: "#", // TODO: реальная ссылка
   },
   {
@@ -38,7 +38,7 @@ export const rocketGroup: RocketProject[] = [
   {
     name: "Rocket Kids",
     description: "Детское музыкальное и продюсерское направление.",
-    logo: null, // TODO
+    logo: "/logos/rocket-kids.svg", // приближённое воссоздание, заменить оригиналом
     url: "#", // TODO
   },
   {
