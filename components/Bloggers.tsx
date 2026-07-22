@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { bloggers } from "@/data/bloggers";
 import { SectionHeading } from "@/components/SectionHeading";
-import { staggerItem } from "@/lib/motion";
+import { EASE } from "@/lib/motion";
 
 export function Bloggers() {
   return (
@@ -25,13 +25,14 @@ export function Bloggers() {
         {/* Per-card reveal: with a long roster the whole grid is too tall to gate
             as one container, so each card animates in as it enters the viewport. */}
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {bloggers.map((blogger) => (
+          {bloggers.map((blogger, i) => (
             <motion.li
-              key={blogger.name}
-              variants={staggerItem}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              key={blogger.handle}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              // Small stagger within each row of five.
+              transition={{ duration: 0.5, ease: EASE, delay: (i % 5) * 0.06 }}
             >
               <motion.article
                 whileHover={{ y: -8 }}
@@ -70,7 +71,7 @@ export function Bloggers() {
                       href={blogger.instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-display text-base font-bold uppercase tracking-tight text-ink transition-colors hover:text-lavender-600"
+                      className="font-display text-base font-bold leading-tight tracking-tight text-ink transition-colors hover:text-lavender-600"
                     >
                       {blogger.name}
                     </Link>
