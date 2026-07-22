@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-milk text-ink font-sans antialiased;
+  overflow-x: hidden;
+}
+
+/* Sections sit under the sticky header — keep anchors from hiding behind it. */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Reusable page container. */
+.container-x {
+  @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Thin outline utility used on soft cards. */
+.card-outline {
+  @apply border border-lavender-200/70;
+}
