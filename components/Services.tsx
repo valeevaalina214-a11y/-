@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Target, PenTool, Video, Rocket, Users } from "lucide-react";
+import { Target, PenTool, Video, Rocket, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { services, type Service } from "@/data/services";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -43,13 +43,8 @@ export function Services() {
             const Icon = iconMap[service.icon];
             return (
               <motion.li key={service.title} variants={staggerItem}>
-                <motion.a
-                  href="#contacts"
-                  whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                  className="group flex h-full flex-col rounded-4xl border border-lavender-200/70 bg-gradient-to-b from-white to-lavender-50 p-6 shadow-card"
-                >
-                  <span className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-lavender-100 text-lavender-600 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                <div className="flex h-full flex-col rounded-4xl border border-lavender-200/70 bg-gradient-to-b from-white to-lavender-50 p-6 shadow-card">
+                  <span className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-lavender-100 text-lavender-600">
                     <Icon className="h-5 w-5" />
                   </span>
                   <h3 className="mb-3 font-display text-lg font-bold leading-snug text-ink">
@@ -58,10 +53,7 @@ export function Services() {
                   <p className="text-sm leading-relaxed text-graphite/80">
                     {service.description}
                   </p>
-                  <span className="mt-6 inline-flex h-9 w-9 items-center justify-center self-start rounded-full bg-ink/5 text-ink transition-all duration-300 group-hover:bg-ink group-hover:text-milk">
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                  </span>
-                </motion.a>
+                </div>
               </motion.li>
             );
           })}
