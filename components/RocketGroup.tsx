@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { rocketGroup } from "@/data/rocketGroup";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Character } from "@/components/Character";
+import { Mascot } from "@/components/Mascot";
 import { Stars } from "@/components/Stars";
 import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
 
@@ -75,12 +75,7 @@ export function RocketGroup() {
 
           {/* Small mascot beside the grid */}
           <div className="mx-auto hidden w-40 lg:block xl:w-52">
-            <Character
-              src="/characters/group.svg"
-              alt="3D-персонаж Rocket Agency рядом с проектами Rocket Group"
-              width={640}
-              height={820}
-            />
+            <Mascot variant="lavender" />
           </div>
         </div>
       </div>

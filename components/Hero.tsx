@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { site } from "@/data/site";
 import { Button } from "@/components/Button";
 import { Stars } from "@/components/Stars";
-import { Character } from "@/components/Character";
+import { Mascot } from "@/components/Mascot";
 import { SocialIcons } from "@/components/SocialIcons";
 import { EASE } from "@/lib/motion";
 
@@ -100,11 +100,8 @@ export function Hero() {
 
         {/* Right: character + social icons */}
         <div className="relative z-0 flex flex-col items-center lg:items-end">
-          <Character
-            src="/characters/hero.svg"
-            alt="3D-персонаж Rocket Agency в лавандовом худи"
-            width={640}
-            height={820}
+          <Mascot
+            variant="lavender"
             priority
             className="w-[62%] max-w-[420px] sm:w-1/2 lg:w-[92%] lg:max-w-none"
           />

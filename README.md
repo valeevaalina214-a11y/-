@@ -68,7 +68,7 @@ npm run lint       # проверка ESLint
 | **Фотографии блогеров** | положить в `public/bloggers/`, путь указать в `data/bloggers.ts` (поле `image`) |
 | **Проекты Rocket Group** (название, описание, ссылка, логотип) | `data/rocketGroup.ts` |
 | **Логотипы Rocket Group** | положить в `public/logos/`, путь указать в поле `logo` |
-| **3D-персонажи** | положить в `public/characters/` (`hero.*`, `group.*`, `contacts.*`) |
+| **Персонаж-маскот** | `components/Mascot.tsx` — векторный анимированный персонаж (моргает + машет). Цвет через `variant="lavender" | "black"`. Реальные 3D-рендеры можно подключить через `components/Character.tsx` (но статичный PNG не моргает — нужен спрайт/Lottie) |
 | **Услуги** | `data/services.ts` |
 | **Контактные данные** (телефон, почта, TG, IG) | `data/contacts.ts` |
 | **Тексты hero / навигация / название бренда** | `data/site.ts` |

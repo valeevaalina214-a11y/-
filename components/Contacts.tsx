@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, Send, Instagram, CheckCircle2 } from "lucide-react";
 import { contacts } from "@/data/contacts";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Character } from "@/components/Character";
+import { Mascot } from "@/components/Mascot";
 import { Stars } from "@/components/Stars";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 
@@ -107,12 +107,7 @@ export function Contacts() {
             </ul>
 
             <div className="pointer-events-none absolute -bottom-10 right-0 hidden w-40 sm:block lg:w-48">
-              <Character
-                src="/characters/contacts.svg"
-                alt="3D-персонаж Rocket Agency рядом с контактами"
-                width={640}
-                height={820}
-              />
+              <Mascot variant="black" />
             </div>
           </motion.div>
 
